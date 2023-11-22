@@ -36,7 +36,7 @@ async def get_data(data, access_token):
 
     async with httpx.AsyncClient(event_hooks={'request': [log_request], 'response': [log_response]}) as client:
         headers = {"Authorization": f"Bearer {access_token}"}
-        fields_to_try = ['upc', 'name', 'short_description', 'model', 'Web Category']
+        fields_to_try = ['upc', 'name']
 
         for field in fields_to_try:
             query_value = data.get(field)
